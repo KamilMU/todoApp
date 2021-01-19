@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Todos from './Todos';
+import TodoApp from './TodoApp.jsx';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <BrowserRouter>
-    <React.StrictMode>
-      <Todos />
-    </React.StrictMode>
+    <TodoApp />
   </BrowserRouter>,
   document.getElementById('root')
 );
