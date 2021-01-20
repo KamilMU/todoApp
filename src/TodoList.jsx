@@ -8,11 +8,12 @@ export default function TodoList({ todos, deleteTodo }) {
         {todos.map(todo => (
           <li className={styles.todos__todo} key={todo.id}>
             <div style={{
-              textDecoration: todo.status === 'solved' ? "line-through" : "none"
+              textDecoration: todo.status === 'solved' && "line-through"
             }}>
               <div className={styles.todos__tittle}>
                 <b>{todo.tittle}</b>
-                {todo.status === 'inWork' && <span>in work!</span>}
+                {todo.status === 'inWork' && (<span className={styles.inWork}>in work!</span>)}
+                {todo.status === 'open' && (<span className={styles.open}>open</span>)}
               </div>
               <div>{todo.text}</div>
             </div>

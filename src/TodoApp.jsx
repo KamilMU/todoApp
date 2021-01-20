@@ -3,6 +3,7 @@ import styles from './TodoApp.module.css';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from './MainPage.jsx';
 import AddTodo from './AddTodo.jsx';
+import { unionBy } from 'lodash';
 
 function TodoApp() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -50,13 +51,15 @@ function TodoApp() {
   }
 
   function submitForm(inputTittle, inputText) {
-    inputText !== "" && (
-      setCurrentTodos([...currentTodos, {
-        id: Date.now(),
-        tittle: inputTittle,
-        text: inputText,
-        status: "open"
-      }]));
+    const createdTodo = {
+      id: Date.now(),
+      tittle: inputTittle,
+      text: inputText,
+      status: "open"
+    }
+
+    setAllTodos([...allTodos, createdTodo]);
+    setCurrentTodos([...currentTodos, createdTodo]);
   }
 
   function searchTodo(searchTerm) {
@@ -67,11 +70,12 @@ function TodoApp() {
         )
       );
     } else {
-      setCurrentTodos(allTodos);
+      setCurrentTodos(unionBy(allTodos, currentTodos, 'id'));
     }
   }
 
   function deleteTodo(id) {
+    setCurrentTodos(currentTodos.filter(todo => todo.id !== id))
     setAllTodos(allTodos.filter(todo => todo.id !== id))
   }
 
@@ -81,14 +85,14 @@ function TodoApp() {
       .filter(checkboxKey => filters[checkboxKey]);
     if (activeCheckboxes.length) {
       setCurrentTodos(
-        allTodos.filter(todo => {
+        unionBy(allTodos, currentTodos, 'id').filter(todo => {
           return activeCheckboxes.every(activeCheckbox => {
             return todo.status === activeCheckbox
           })
         })
       );
     } else {
-      setCurrentTodos(allTodos);
+      setCurrentTodos(unionBy(allTodos, currentTodos, 'id'));
     }
   }
 

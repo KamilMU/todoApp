@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './SearchTodo.module.css';
 
 export default function SearchTodo({ searchTerm, setSearchTerm }) {
