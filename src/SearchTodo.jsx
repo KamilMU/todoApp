@@ -4,7 +4,7 @@ import styles from './SearchTodo.module.css';
 export default function SearchTodo({ searchTerm, setSearchTerm }) {
   function handleChange(event) {
     setSearchTerm(event.target.value);
-  };
+  }
 
   return (
     <div className={styles.searchContainer}>

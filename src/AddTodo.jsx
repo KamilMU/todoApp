@@ -6,8 +6,8 @@ function AddTodo({
   submitForm,
   history
 }) {
-  const [inputTittle, setInputTittle] = useState('')
-  const [inputText, setInputText] = useState('')
+  const [inputTittle, setInputTittle] = useState('');
+  const [inputText, setInputText] = useState('');
 
   return (
     <div className={styles.container}>
@@ -15,18 +15,22 @@ function AddTodo({
       <form onSubmit={e => {
         e.preventDefault();
         submitForm(inputTittle, inputText);
-        setInputTittle("");
-        setInputText("");
+        setInputTittle('');
+        setInputText('');
         history.push('/');
       }}>
-        <input value={inputTittle} onChange={(e) => {
-          setInputTittle(e.target.value);
-        }} />
+        <input
+          value={inputTittle}
+          onChange={(e) => {
+            setInputTittle(e.target.value);
+          }}
+        />
         <textarea
           value={inputText}
           onChange={(e) => {
             setInputText(e.target.value);
-          }} />
+          }}
+        />
         <button type="submit">
           Добавить
         </button>
@@ -35,4 +39,4 @@ function AddTodo({
   )
 }
 
-export default withRouter(AddTodo)
+export default withRouter(AddTodo);

@@ -7,7 +7,7 @@ import { unionBy } from 'lodash';
 
 function TodoApp() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [currentTodos, setCurrentTodos] = useState([])
+  const [currentTodos, setCurrentTodos] = useState([]);
   const [allTodos, setAllTodos] = useState([
     {
       id: 1,
@@ -27,12 +27,12 @@ function TodoApp() {
       text: "watch some comedy show",
       status: "inWork"
     }
-  ])
+  ]);
   const [checkboxesStatus, setCheckboxesStatus] = useState({
     open: false,
     inWork: false,
     solved: false,
-  })
+  });
 
   useEffect(() => {
     onFilterChange(checkboxesStatus);
@@ -46,8 +46,7 @@ function TodoApp() {
     setCheckboxesStatus({
       ...checkboxesStatus,
       [e.target.name]: e.target.checked
-    })
-
+    });
   }
 
   function submitForm(inputTittle, inputText) {
@@ -109,18 +108,21 @@ function TodoApp() {
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
                 onFilterChange={handleFilterChange}
-              />}
+              />
+          }
         />
-        <Route exact path="/addtodo"
+        <Route
+          exact path="/addtodo"
           render={
             () =>
               <AddTodo
                 submitForm={submitForm}
-              />}
+              />
+          }
         />
       </Switch>
     </div>
   )
 }
 
-export default TodoApp
+export default TodoApp;
