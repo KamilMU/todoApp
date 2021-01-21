@@ -55,7 +55,7 @@ function TodoApp() {
       tittle: inputTittle,
       text: inputText,
       status: "open"
-    }
+    };
 
     setAllTodos([...allTodos, createdTodo]);
     setCurrentTodos([...currentTodos, createdTodo]);
@@ -74,8 +74,8 @@ function TodoApp() {
   }
 
   function deleteTodo(id) {
-    setCurrentTodos(currentTodos.filter(todo => todo.id !== id))
-    setAllTodos(allTodos.filter(todo => todo.id !== id))
+    setCurrentTodos(currentTodos.filter(todo => todo.id !== id));
+    setAllTodos(allTodos.filter(todo => todo.id !== id));
   }
 
   function onFilterChange(filters) {
@@ -122,7 +122,7 @@ function TodoApp() {
         />
       </Switch>
     </div>
-  )
+  );
 }
 
 export default TodoApp;

@@ -31,7 +31,7 @@ function MainPage({
         deleteTodo={deleteTodo}
       />
     </div>
-  )
+  );
 }
 
-export default withRouter(MainPage)
+export default withRouter(MainPage);

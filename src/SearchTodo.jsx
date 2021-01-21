@@ -16,5 +16,5 @@ export default function SearchTodo({ searchTerm, setSearchTerm }) {
         onChange={handleChange}
       />
     </div>
-  )
+  );
 }

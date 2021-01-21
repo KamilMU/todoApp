@@ -5,7 +5,7 @@ const checkboxes = [
   { name: 'open', alias: 'открытые' },
   { name: 'inWork', alias: 'в работе' },
   { name: 'solved', alias: 'решенные' }
-]
+];
 
 export default function Filters({ onFilterChange }) {
   return (
@@ -24,5 +24,5 @@ export default function Filters({ onFilterChange }) {
         </label>
       ))}
     </div>
-  )
+  );
 }

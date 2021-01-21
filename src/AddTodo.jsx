@@ -36,7 +36,7 @@ function AddTodo({
         </button>
       </form>
     </div>
-  )
+  );
 }
 
 export default withRouter(AddTodo);

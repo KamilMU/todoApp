@@ -22,5 +22,5 @@ export default function TodoList({ todos, deleteTodo }) {
         ))}
       </ul>
     </div>
-  )
+  );
 }
